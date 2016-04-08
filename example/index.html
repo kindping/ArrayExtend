@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Array Extend</title>
+	<script src="../src/ArrayExtend.js"></script>
+	<link rel="stylesheet" href="example.css">
+</head>
+<body>
+	<header id="header">
+		<h1>Array Extend Example</h1>
+	</header>
+	<main id="main">
+		<div id="u-array-area">
+			<input type="text" id="u-array" value="1,30,2,5,6">
+		</div>
+		<div id="fn-area">
+			<button class="btn" id="fn-has-button">has</button>
+			<button class="btn" id="fn-remove-button">remove</button>
+			<button class="btn" id="fn-min-button">min</button>
+			<button class="btn" id="fn-max-button">max</button>
+		</div>
+	</main>
+	<div id="mask"></div>
+	<div id="popup">
+		<h1 id="fn-name">aaaa</h1>
+		<div style="text-align:center">
+			<input type="text" id="fn-input">
+		</div>
+		<button id="fn-run">Run</button>
+	</div>
+
+	<script>
+		var uArr   = document.getElementById('u-array');
+		var has    = document.getElementById('fn-has-button');
+		var remove = document.getElementById('fn-remove-button');
+		var min    = document.getElementById('fn-min-button');
+		var max    = document.getElementById('fn-max-button');
+		var uArray = uArr.value.split(',');
+		var fnMap = {
+			has : function() {
+				var run = document.getElementById('fn-run');
+				run.addEventListener('click', function() {
+					var need = document.getElementById('fn-input').value;
+					this.removeEventListener('click', arguments.callee);
+					popupHide();
+					alert(uArray.has(need));
+				});
+			},
+			remove : function() {
+				var run = document.getElementById('fn-run');
+				run.addEventListener('click', function() {
+					var need = document.getElementById('fn-input').value;
+					this.removeEventListener('click', arguments.callee);
+					popupHide();
+					alert(uArray.remove(need));
+					uArr.value = uArray.join(',');
+				});
+			},
+			min : function() {
+				alert(uArray.min());
+			},
+			max : function() {
+				alert(uArray.max());
+			}
+		};
+
+		uArr.addEventListener('change', function() {
+			uArray = this.value.split(',');
+		});
+
+		has.addEventListener('click', function() {
+			popup('Has', 'has');
+		});
+
+		remove.addEventListener('click', function() {
+			popup('Remove', 'remove');
+		});
+
+		min.addEventListener('click', fnMap.min);
+
+		max.addEventListener('click', fnMap.max);
+
+		function popup(title, fn) {
+			popupShow();
+			document.getElementById('fn-name').innerHTML = title;
+			if(typeof fnMap[fn] == 'function') fnMap[fn]();
+		}
+
+		function popupShow() {
+			document.getElementById('popup').style.display = 'block';
+			document.getElementById('mask').style.display = 'block';
+		}
+
+		function popupHide() {
+			document.getElementById('popup').style.display = 'none';
+			document.getElementById('mask').style.display = 'none';
+		}
+	</script>
+</body>
+</html>

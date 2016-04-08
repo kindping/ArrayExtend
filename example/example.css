@@ -1,0 +1,97 @@
+* {
+	padding:0;
+	margin:0;
+}
+
+body {
+	font-size:14px;
+}
+
+#header {
+	height:60px;
+	line-height:60px;
+	background:#0080FF;
+	color:#E6E6E6;
+}
+
+#header h1 {
+	text-indent:20px;
+}
+
+.btn {
+	padding:10px 15px;
+	margin:5px;
+	border:0;
+	border-radius:4px;
+	background:#008000;
+	color:#E6E6E6;
+	font-size:14px;
+	cursor:pointer;
+}
+
+.btn:hover {
+	background:#E6E6E6;
+	color:#008000;
+}
+
+#u-array-area {
+	width:50%;
+	margin:auto;
+	height:100px;
+}
+
+#u-array {
+	width:100%;
+	height:80px;
+	margin-top:10px;
+	font-size:30px;
+	text-indent:10px;
+}
+
+#mask {
+	position:fixed;
+	top:0;
+	left:0;
+	width:100%;
+	height:100%;
+	background:#000;
+	opacity:0.6;
+	z-index:1;
+	display:none;
+}
+
+#popup {
+	position:fixed;
+	width:200px;
+	height:100px;
+	background:#FFFFFF;
+	top:50%;
+	left:50%;
+	margin-left:-110px;
+	margin-top:-60px;
+	z-index:2;
+	display:none;
+	padding:10px;
+}
+
+#fn-name {
+	text-align:center;
+}
+
+#fn-input {
+	width:180px;
+	height:30px;
+	text-align:center;
+	font-size:20px;
+}
+
+#fn-run {
+	margin-top:5px;
+	margin-left:50px;
+	width:100px;
+	height:25px;
+	cursor:pointer;
+	background:#FF6666;
+	border:0;
+	color:#E6E6E6;
+}
